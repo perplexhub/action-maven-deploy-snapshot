@@ -78,7 +78,7 @@ function runAction() {
 	// Deploy to Nexus
 	// The "deploy" profile is used in case the user wants to perform certain steps only during
 	// deployment and not in the install phase
-	log("Deploying the Maven project…");
+	log("Deploying the Maven project");
 	run(
 		`mvn ${mavenGoalsPhases} --batch-mode --activate-profiles deploy --settings ${mavenSettingsPath} ${mavenArgs}`,
 		getInput("directory") || null,
