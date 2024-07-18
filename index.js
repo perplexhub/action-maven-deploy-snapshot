@@ -69,7 +69,7 @@ function runAction() {
 		getInput("gpg_passphrase", true);
 
 		// Import private key (write into temporary file and import that file)
-		log("Importing GPG key…" + process.env["INPUT_NEXUS_USERNAME"]);
+		log("Importing GPG key…");
 		writeFileSync(gpgKeyPath, privateKey);
 		run(`gpg --import --batch ${gpgKeyPath}`);
 		unlinkSync(gpgKeyPath);
