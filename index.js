@@ -58,7 +58,7 @@ function runAction() {
 	// Make sure the required input variables are provided
 	getInput("nexus_username", true);
 	getInput("nexus_password", true);
-	log(nexus_username);
+	log(getInput("nexus_username", true));
 
 	const mavenArgs = getInput("maven_args", true);
 	const mavenGoalsPhases = getInput("maven_goals_phases", true);
