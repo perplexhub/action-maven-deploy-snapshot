@@ -58,7 +58,6 @@ function runAction() {
 	// Make sure the required input variables are provided
 	getInput("nexus_username", true);
 	getInput("nexus_password", true);
-	log(getInput("nexus_username", true));
 
 	const mavenArgs = getInput("maven_args", true);
 	const mavenGoalsPhases = getInput("maven_goals_phases", true);
@@ -70,7 +69,7 @@ function runAction() {
 		getInput("gpg_passphrase", true);
 
 		// Import private key (write into temporary file and import that file)
-		log("Importing GPG key…");
+		log("Importing GPG key…" + process.env["INPUT_NEXUS_USERNAME"]);
 		writeFileSync(gpgKeyPath, privateKey);
 		run(`gpg --import --batch ${gpgKeyPath}`);
 		unlinkSync(gpgKeyPath);
